@@ -105,11 +105,10 @@ bool q_insert_tail(queue_t *q, char *s)
         newt->value = strdup(s);
         newt->next = NULL;
         
-        if (q->size == 0){
-          q->head = newt;
-        }
+        if (q->size == 0)
+              q->head = newt;
         else
-          q->tail->next = newt;
+              q->tail->next = newt;
         q->tail = newt;
         q->size++;
     }
