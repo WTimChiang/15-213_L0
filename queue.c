@@ -140,6 +140,9 @@ void q_reverse(queue_t *q)
 {
     /* You need to write the code for this function */
     if (q != NULL && q->size){
+          if (q->head->next == NULL){
+            return;
+          }
       list_ele_t *prev, *curr, *next;
       prev = q->head;
       curr = q->head->next;
