@@ -11,6 +11,7 @@
  * It uses a singly-linked list to represent the set of queue elements
  */
 
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -41,7 +42,9 @@ queue_t *q_new()
 
 /* Free all storage used by queue */
 void q_free(queue_t *q)
-{
+{   
+    if (q == NULL)
+        return;
     /* How about freeing the list elements and the strings? */
     /* Free queue structure */
     list_ele_t *pos;
@@ -102,15 +105,15 @@ bool q_insert_tail(queue_t *q, char *s)
     list_ele_t *newt;
     newt = malloc(sizeof(list_ele_t));
     if (newt != NULL){
-        newt->value = strdup(s);
-        newt->next = NULL;
+      newt->value = strdup(s);
+      newt->next = NULL;
         
-        if (q->size == 0)
-              q->head = newt;
-        else
-              q->tail->next = newt;
-        q->tail = newt;
-        q->size++;
+      if (q->size == 0)
+          q->head = newt;
+      else
+          q->tail->next = newt;
+      q->tail = newt;
+      q->size++;
     }
     return newt != NULL;
 }
@@ -175,4 +178,3 @@ void q_reverse(queue_t *q)
       q->head = curr;
     }
 }
-
