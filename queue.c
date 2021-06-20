@@ -45,10 +45,10 @@ void q_free(queue_t *q)
     /* How about freeing the list elements and the strings? */
     /* Free queue structure */
     list_ele_t *pos;
-    for (pos = q->head; pos != NULL){
+    for (pos = q->head; pos != NULL;){
       list_ele_t *prev = pos;
       pos = pos->next;
-      free(prev)
+      free(prev);
     }
     free(q);
 }
@@ -117,7 +117,7 @@ int q_size(queue_t *q)
 {
     /* You need to write the code for this function */
     /* Remember: It should operate in O(1) time */
-    return q->size;
+    return q != NULL ? q->size : 0;
 }
 
 /*
