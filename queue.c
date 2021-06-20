@@ -94,6 +94,8 @@ bool q_insert_tail(queue_t *q, char *s)
 */
 bool q_remove_head(queue_t *q, char *sp, size_t bufsize)
 {
+    if(q == NULL || q->size == 0)
+        return false;
     /* You need to fix up this code. */
     q->head = q->head->next;
     /* remove one element, so decrease the size by 1*/
